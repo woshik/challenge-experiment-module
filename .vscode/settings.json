@@ -1,0 +1,15 @@
+{
+    "standard.enable": true,
+    "standard.autoFixOnSave": true,
+    "standard.engine": "ts-standard",
+    "editor.formatOnSave": true,
+    "[typescript]": {
+		"editor.defaultFormatter": "standard.vscode-standard",
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "standard.vscode-standard",
+	},
+    "[typescriptreact]": {
+		"editor.defaultFormatter": "standard.vscode-standard",
+	},
+}
