@@ -5,11 +5,11 @@ interface IActionReturn {
   removeModule: (id: number) => void
   lockUnlockModule: (id: number) => void
   resetModule: (id: number) => void
-
 }
 
 export const useExperimentModuleAction = (): IActionReturn => {
-  const { experimentModules, setExperimentModules } = useExperimentModuleContext()
+  const { experimentModules, setExperimentModules } =
+    useExperimentModuleContext()
 
   const addModule = (): void => {
     const id = experimentModules?.[experimentModules?.length - 1]?.id ?? 0
