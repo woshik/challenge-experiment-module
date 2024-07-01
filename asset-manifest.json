@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/challenge-experiment-module/static/css/main.b3d1df7c.css",
+    "main.js": "/challenge-experiment-module/static/js/main.23899714.js",
+    "index.html": "/challenge-experiment-module/index.html",
+    "main.b3d1df7c.css.map": "/challenge-experiment-module/static/css/main.b3d1df7c.css.map",
+    "main.23899714.js.map": "/challenge-experiment-module/static/js/main.23899714.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3d1df7c.css",
+    "static/js/main.23899714.js"
+  ]
+}
