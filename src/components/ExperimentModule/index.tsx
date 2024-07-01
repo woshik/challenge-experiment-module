@@ -19,11 +19,11 @@ const ExperimentModule = ({
   const [promptValue, setPromptValue] = useState('')
   const [validationError, setValidationError] = useState(false)
 
-  const handleCancelClick = (): void => {
+  const handleControlCancelClick = (): void => {
     setIsAddIterationModeTrue(false)
   }
 
-  const handleDoneClick = (): void => {
+  const handleControlDoneClick = (): void => {
     if (promptValue === '') {
       setValidationError(true)
     } else {
@@ -32,7 +32,7 @@ const ExperimentModule = ({
     }
   }
 
-  const handleAddIterationClick = (): void => {
+  const handleControlAddIterationClick = (): void => {
     setIsAddIterationModeTrue(true)
   }
 
@@ -59,9 +59,9 @@ const ExperimentModule = ({
             id={id}
             lock={lock}
             isAddIterationModeTrue={isAddIterationModeTrue}
-            onCancelClick={handleCancelClick}
-            onDoneClick={handleDoneClick}
-            onAddIterationClick={handleAddIterationClick}
+            onCancelClick={handleControlCancelClick}
+            onDoneClick={handleControlDoneClick}
+            onAddIterationClick={handleControlAddIterationClick}
           />
         </div>
       </AccordionContent>

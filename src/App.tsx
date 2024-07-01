@@ -1,4 +1,5 @@
 import ExperimentModule from './components/ExperimentModule'
+import Iteration from './components/Iteration'
 import { useExperimentModuleContext } from './context/experimentModule'
 
 const App = (): JSX.Element => {
@@ -12,7 +13,17 @@ const App = (): JSX.Element => {
           id={module.id}
           title={module.title}
           lock={module.lock}
-        >Hello
+        >
+          {module.iterations.map((iteration) => (
+            <Iteration
+              key={iteration.id}
+              moduleId={module.id}
+              id={iteration.id}
+              title={iteration.title}
+              variant={iteration.variant}
+              mode={iteration.mode}
+            />
+          ))}
         </ExperimentModule>
       ))}
     </div>
