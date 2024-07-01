@@ -21,7 +21,7 @@ const moduleData: IExperimentModuleData[] = [
       {
         id: 1,
         title: 'Iteration Title',
-        variant: ''
+        variant: 'large'
       }
     ]
   },
@@ -33,7 +33,7 @@ const moduleData: IExperimentModuleData[] = [
       {
         id: 1,
         title: 'Iteration Title',
-        variant: ''
+        variant: 'short'
       },
       {
         id: 2,
