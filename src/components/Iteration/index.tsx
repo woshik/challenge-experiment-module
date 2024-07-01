@@ -24,8 +24,8 @@ const Iteration = ({
     setExpand(false)
   }
 
-  const isViewMode = title === ''
-  const hasVariant = variant === ''
+  const isViewMode = title !== ''
+  const hasVariant = variant !== ''
 
   return (
     <Accordion
