@@ -6,7 +6,7 @@ import Control from './control'
 import Prompt from './prompt'
 
 interface IExperimentModule extends Omit<IExperimentModuleData, 'iterations'> {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const ExperimentModule = ({
@@ -16,17 +16,29 @@ const ExperimentModule = ({
   children
 }: IExperimentModule): JSX.Element => {
   const [isAddIterationModeTrue, setIsAddIterationModeTrue] = useState(false)
+  const [promptValue, setPromptValue] = useState('')
+  const [validationError, setValidationError] = useState(false)
 
   const handleCancelClick = (): void => {
     setIsAddIterationModeTrue(false)
   }
 
   const handleDoneClick = (): void => {
-    setIsAddIterationModeTrue(false)
+    if (promptValue === '') {
+      setValidationError(true)
+    } else {
+      console.log(promptValue)
+      setIsAddIterationModeTrue(false)
+    }
   }
 
   const handleAddIterationClick = (): void => {
     setIsAddIterationModeTrue(true)
+  }
+
+  const handlerPromptOnChange = (value: string): void => {
+    setValidationError(false)
+    setPromptValue(value)
   }
 
   return (
@@ -37,7 +49,11 @@ const ExperimentModule = ({
       </AccordionItem>
       <AccordionContent className='px-8'>
         <div className='space-y-2'>{children}</div>
-        <Prompt isAddIterationModeTrue={isAddIterationModeTrue} />
+
+        <Prompt isAddIterationModeTrue={isAddIterationModeTrue} onValueChange={handlerPromptOnChange} />
+
+        {validationError && <p className='w-full mt-5 bg-red-900 font-medium text-white rounded-lg p-4'>Prompt is empty. Please write to the prompt.</p>}
+
         <div className='flex items-center justify-end'>
           <Control
             id={id}

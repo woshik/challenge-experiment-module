@@ -1,8 +1,22 @@
-import { Button } from './components/ui/button'
-import Textarea from './components/ui/textarea'
+import ExperimentModule from './components/ExperimentModule'
+import { useExperimentModuleContext } from './context/experimentModule'
 
-function App (): JSX.Element {
-  return (<><Button>Hello world!</Button><Textarea className='border mt-10' size='lg' /></>)
+const App = (): JSX.Element => {
+  const { experimentModules } = useExperimentModuleContext()
+
+  return (
+    <div className='w-[580px] mx-auto space-y-5 p-5'>
+      {experimentModules.map((module) => (
+        <ExperimentModule
+          key={module.id}
+          id={module.id}
+          title={module.title}
+          lock={module.lock}
+        >Hello
+        </ExperimentModule>
+      ))}
+    </div>
+  )
 }
 
 export default App
