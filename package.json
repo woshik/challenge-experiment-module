@@ -2,6 +2,7 @@
 	"name": "challenge-experiment-module",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://woshik.github.io/challenge-experiment-module/",
 	"dependencies": {
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
