@@ -1,9 +1,9 @@
-name: Deploy React App
+name: Deploy Challenge Experiment Module
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
