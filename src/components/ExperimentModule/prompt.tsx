@@ -40,7 +40,7 @@ const Prompt = ({
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     if (onValueChange != null) {
-      onValueChange(e.target.value)
+      onValueChange(e.target.value.trim())
     }
   }
 

@@ -44,7 +44,7 @@ const ExperimentModule = ({
 
   const handlerPromptOnChange = (value: string): void => {
     setValidationError(false)
-    setPromptValue(value.trim())
+    setPromptValue(value)
   }
 
   return (
