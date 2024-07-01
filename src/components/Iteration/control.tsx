@@ -8,7 +8,12 @@ interface IControlProps {
   onDoneClick?: () => void
 }
 
-const Control = ({ id, moduleId, onRemoveClick, onDoneClick }: IControlProps): JSX.Element => {
+const Control = ({
+  id,
+  moduleId,
+  onRemoveClick,
+  onDoneClick
+}: IControlProps): JSX.Element => {
   const { removeIteration } = useIterationAction()
 
   const handlerRemoveClick = (): void => {

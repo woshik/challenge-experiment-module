@@ -8,7 +8,12 @@ interface IIterationProps extends IIterationData {
   moduleId: number
 }
 
-const Iteration = ({ id, title, moduleId, variant }: IIterationProps): JSX.Element => {
+const Iteration = ({
+  id,
+  title,
+  moduleId,
+  variant
+}: IIterationProps): JSX.Element => {
   const [expand, setExpand] = useState(false)
 
   const handleAccordionChange = (expand: boolean): void => {
@@ -19,20 +24,23 @@ const Iteration = ({ id, title, moduleId, variant }: IIterationProps): JSX.Eleme
     setExpand(false)
   }
 
-  const isViewMode = Boolean(title)
-  const hasVariant = Boolean(variant)
+  const isViewMode = title === ''
+  const hasVariant = variant === ''
 
   return (
-    <Accordion className='bg-background first:rounded-t-md last:rounded-b-md' expanded={expand} onChange={handleAccordionChange}>
-      <AccordionItem
-        className='grid grid-cols-[min-content_1fr] text-primary-foreground transition-colors hover:text-white p-4'
-      >
+    <Accordion
+      className='bg-background first:rounded-t-md last:rounded-b-md'
+      expanded={expand}
+      onChange={handleAccordionChange}
+    >
+      <AccordionItem className='grid grid-cols-[min-content_1fr] text-primary-foreground transition-colors hover:text-white p-4'>
         <div className='flex justify-between items-center whitespace-nowrap pl-4 mr-8'>
           EM-{id}
         </div>
 
         <div className='flex justify-between items-center'>
-          {isViewMode ? (<h3>{title}</h3>) : (<h3>Adding iteration...</h3>)}
+          {isViewMode ? <h3>{title}</h3> : <h3>Adding iteration...</h3>}
+
           {!expand && isViewMode && hasVariant && (
             <div className='flex justify-between items-center'>
               <span className='mr-2'>Selection</span>
@@ -48,11 +56,14 @@ const Iteration = ({ id, title, moduleId, variant }: IIterationProps): JSX.Eleme
             <Variant id={id} moduleId={moduleId} variant={variant} />
           </div>
           <div className='flex items-center justify-end'>
-            <Control id={id} moduleId={moduleId} onDoneClick={handleControlDoneClick} />
+            <Control
+              id={id}
+              moduleId={moduleId}
+              onDoneClick={handleControlDoneClick}
+            />
           </div>
         </AccordionContent>
       )}
-
     </Accordion>
   )
 }

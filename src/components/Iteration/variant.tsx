@@ -3,11 +3,16 @@ import { IIterationData } from '../../constants/module'
 import iterationVariant from '../../constants/iteration-variant'
 import useIterationAction from '../../hooks/useIterationAction'
 
-interface IIterationVariantProps extends Pick<IIterationData, 'variant' | 'id'> {
+interface IIterationVariantProps
+  extends Pick<IIterationData, 'variant' | 'id'> {
   moduleId: number
 }
 
-const Variant = ({ id, moduleId, variant }: IIterationVariantProps): JSX.Element => {
+const Variant = ({
+  id,
+  moduleId,
+  variant
+}: IIterationVariantProps): JSX.Element => {
   const { selectVariant } = useIterationAction()
 
   return (
