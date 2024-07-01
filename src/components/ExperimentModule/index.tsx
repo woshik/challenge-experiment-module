@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem } from '../ui/accordion'
 import { IExperimentModuleData } from '../../constants/module'
 import Control from './control'
 import Prompt from './prompt'
+import useIterationAction from '../../hooks/useIterationAction'
 
 interface IExperimentModule extends Omit<IExperimentModuleData, 'iterations'> {
   children?: React.ReactNode
@@ -18,6 +19,7 @@ const ExperimentModule = ({
   const [isAddIterationModeTrue, setIsAddIterationModeTrue] = useState(false)
   const [promptValue, setPromptValue] = useState('')
   const [validationError, setValidationError] = useState(false)
+  const { addIterationTitle } = useIterationAction()
 
   const handleControlCancelClick = (): void => {
     setIsAddIterationModeTrue(false)
@@ -27,7 +29,7 @@ const ExperimentModule = ({
     if (promptValue === '') {
       setValidationError(true)
     } else {
-      console.log(promptValue)
+      addIterationTitle(id, promptValue)
       setIsAddIterationModeTrue(false)
     }
   }
