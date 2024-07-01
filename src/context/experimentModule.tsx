@@ -30,7 +30,7 @@ const ExperimentModuleProvider = ({
   )
 }
 
-const useExperimentModule = (): IContext => {
+const useExperimentModuleContext = (): IContext => {
   const { experimentModules, setExperimentModules } = useContext(
     ExperimentModuleContext
   ) as IContext
@@ -41,4 +41,4 @@ const useExperimentModule = (): IContext => {
   }
 }
 
-export { ExperimentModuleProvider, useExperimentModule }
+export { ExperimentModuleProvider, useExperimentModuleContext }
