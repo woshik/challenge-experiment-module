@@ -45,7 +45,14 @@ const Prompt = ({
   }
 
   if (isAddIterationModeTrue && textareaVisible) {
-    return <Textarea size='lg' className='mt-10' ref={textAreaRef} onChange={e => handleOnChange(e)} />
+    return (
+      <Textarea
+        size='lg'
+        className='mt-10'
+        ref={textAreaRef}
+        onChange={(e) => handleOnChange(e)}
+      />
+    )
   }
 
   if (isAddIterationModeTrue) {

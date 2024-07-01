@@ -23,6 +23,8 @@ const ExperimentModule = ({
 
   const handleControlCancelClick = (): void => {
     setIsAddIterationModeTrue(false)
+    setValidationError(false)
+    setPromptValue('')
   }
 
   const handleControlDoneClick = (): void => {
@@ -31,6 +33,8 @@ const ExperimentModule = ({
     } else {
       addIterationTitle(id, promptValue)
       setIsAddIterationModeTrue(false)
+      setValidationError(false)
+      setPromptValue('')
     }
   }
 
@@ -52,9 +56,16 @@ const ExperimentModule = ({
       <AccordionContent className='px-8'>
         <div className='space-y-2'>{children}</div>
 
-        <Prompt isAddIterationModeTrue={isAddIterationModeTrue} onValueChange={handlerPromptOnChange} />
+        <Prompt
+          isAddIterationModeTrue={isAddIterationModeTrue}
+          onValueChange={handlerPromptOnChange}
+        />
 
-        {validationError && <p className='w-full mt-5 bg-red-900 font-medium text-white rounded-lg p-4'>Prompt is empty. Please write to the prompt.</p>}
+        {validationError && (
+          <p className='w-full mt-5 bg-red-900 font-medium text-white rounded-lg p-4'>
+            Prompt is empty. Please write to the prompt.
+          </p>
+        )}
 
         <div className='flex items-center justify-end'>
           <Control
